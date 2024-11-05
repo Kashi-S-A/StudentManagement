@@ -14,14 +14,15 @@
 </head>
 <body>
 
-	<h4>${msg}</h4>
-	<h1>Home Page</h1>
-
 	<%
 	List<Student> students = (List<Student>) request.getAttribute("students");
 	%>
 
 	<div class="container">
+
+		<h4>${msg}</h4>
+		<h1>Home Page</h1>
+
 
 		<table class="table">
 			<thead>
@@ -29,7 +30,6 @@
 					<th scope="col">Name</th>
 					<th scope="col">Email</th>
 					<th scope="col">Phone</th>
-					<th scope="col">SendMail</th>
 					<th scope="col">Update</th>
 					<th scope="col">Delete</th>
 				</tr>
@@ -42,9 +42,8 @@
 					<td><%=student.getName()%></td>
 					<td><%=student.getEmail()%></td>
 					<td><%=student.getPhone()%></td>
-					<td><a href="#">Send Mail</a></td>
-					<td><a href="#">Update</a></td>
-					<td><a href="#">Delete</a></td>
+					<td><a href="<%=request.getContextPath() %>/update?sid=<%=student.getSid()%>">Update</a></td>
+					<td><a href="<%=request.getContextPath() %>/delete?sid=<%=student.getSid()%>">Delete</a></td>
 				</tr>
 
 				<%
@@ -53,8 +52,8 @@
 			</tbody>
 		</table>
 
-		<button type="submit" class="btn btn-primary">Add</button>
-
+		<a href="add">Add</a><br> <a href="email">Send Email</a><br>
+		<a href="/">Logout</a>
 	</div>
 
 	<script

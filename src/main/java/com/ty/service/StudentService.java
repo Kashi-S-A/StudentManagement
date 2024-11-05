@@ -18,4 +18,16 @@ public class StudentService {
 		return repository.findAll();
 	}
 
+	public Student save(Student student) {
+		return repository.save(student);
+	}
+
+	public Student getById(Integer sid) {
+		return repository.findById(sid).get();
+	}
+
+	public void deleteById(Integer sid) {
+		repository.deleteById(sid);
+	}
+
 }
